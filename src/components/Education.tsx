@@ -36,8 +36,9 @@ export default function Education() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ delay: 0.15, duration: 0.5, ease: "easeOut" }}
-        className="mt-12 rounded-xl border border-card-border bg-card p-8 lg:p-10"
+        className="mt-12"
       >
+      <div className="rounded-xl border border-card-border bg-card p-8 transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:p-10">
         <div className="flex items-start gap-5">
           <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl lg:h-28 lg:w-28">
             <Image
@@ -48,11 +49,13 @@ export default function Education() {
             />
           </div>
           <div className="flex-1">
-            <h3 className="text-2xl font-semibold text-foreground lg:text-3xl">
+            <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground lg:text-3xl">
               {education.school}
             </h3>
             <p className="text-lg text-muted lg:text-xl">{education.degree}</p>
-            <p className="mt-1 text-base text-accent lg:text-lg">{education.period}</p>
+            <span className="mt-2 inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent ring-1 ring-accent/25">
+              {education.period}
+            </span>
           </div>
         </div>
 
@@ -66,6 +69,7 @@ export default function Education() {
             </span>
           ))}
         </div>
+      </div>
       </motion.div>
     </section>
   );

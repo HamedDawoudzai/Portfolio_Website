@@ -48,8 +48,8 @@ export default function Skills() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-30px" }}
-            className="rounded-xl border border-card-border bg-card p-6 transition-all hover:shadow-lg lg:p-8"
           >
+          <div className="rounded-xl border border-card-border bg-card p-6 transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:p-8">
             <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-accent lg:text-base">
               {category.label}
             </h3>
@@ -57,12 +57,13 @@ export default function Skills() {
               {category.items.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-lg border border-card-border bg-background px-3 py-1.5 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/5 lg:text-base"
+                  className="rounded-full border border-card-border bg-background px-4 py-1.5 text-sm text-foreground transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent lg:text-base"
                 >
                   {skill}
                 </span>
               ))}
             </div>
+          </div>
           </motion.div>
         ))}
       </div>

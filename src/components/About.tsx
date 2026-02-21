@@ -1,7 +1,138 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+
+type LineType = "prompt" | "command" | "blank" | "code" | "string" | "output" | "success";
+interface TLine { text: string; type: LineType; }
+
+const introLines: TLine[] = [
+  { text: "~/hamed/career $ ", type: "prompt" },
+  { text: "cat goals.js", type: "command" },
+  { text: "", type: "blank" },
+  { text: "const dream = {", type: "code" },
+  { text: '  role: "Software Engineer",', type: "code" },
+  { text: '  location: "New York City",', type: "string" },
+  { text: '  status: "loading..."', type: "code" },
+  { text: "};", type: "code" },
+  { text: "", type: "blank" },
+  { text: "~/hamed/career $ ", type: "prompt" },
+  { text: "git add .", type: "command" },
+  { text: "~/hamed/career $ ", type: "prompt" },
+  { text: 'git commit -m "move to NYC"', type: "command" },
+];
+
+const loopLines: TLine[] = [
+  { text: "~/hamed/career $ ", type: "prompt" },
+  { text: "git push --force origin main", type: "command" },
+  { text: "", type: "blank" },
+  { text: "Enumerating objects: 100%", type: "output" },
+  { text: "remote: Everything up to date.", type: "output" },
+  { text: "Successfully pushed to: nyc/dream-job \u2713", type: "success" },
+];
+
+const INTRO_LINE_DELAY = 200;
+const LOOP_LINE_DELAY = 250;
+const PAUSE_BEFORE_LOOP = 10000;
+
+const colorMap: Record<LineType, string> = {
+  prompt: "text-blue-400",
+  command: "text-white font-semibold",
+  code: "text-slate-300",
+  string: "text-yellow-300",
+  output: "text-slate-400",
+  success: "text-emerald-400 font-semibold",
+  blank: "",
+};
+
+function TerminalBlock() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [introVisible, setIntroVisible] = useState(0);
+  const [loopVisible, setLoopVisible] = useState(0);
+  const [loopKey, setLoopKey] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let cancelled = false;
+
+    async function sleep(ms: number) {
+      return new Promise((r) => setTimeout(r, ms));
+    }
+
+    async function run() {
+      for (let i = 0; i < introLines.length; i++) {
+        if (cancelled) return;
+        await sleep(INTRO_LINE_DELAY);
+        setIntroVisible(i + 1);
+      }
+
+      while (!cancelled) {
+        setLoopVisible(0);
+        setLoopKey((k) => k + 1);
+
+        for (let i = 0; i < loopLines.length; i++) {
+          if (cancelled) return;
+          await sleep(LOOP_LINE_DELAY);
+          setLoopVisible(i + 1);
+        }
+
+        await sleep(PAUSE_BEFORE_LOOP);
+      }
+    }
+
+    run();
+    return () => { cancelled = true; };
+  }, [isInView]);
+
+  const renderLine = (line: TLine, i: number) => {
+    if (line.type === "blank") return <div key={i} className="h-3" />;
+
+    if (line.type === "prompt") {
+      const allLines = i < introLines.length
+        ? introLines
+        : loopLines;
+      const idx = i < introLines.length ? i : i - introLines.length;
+      const next = allLines[idx + 1];
+      const totalVisible = i < introLines.length ? introVisible : loopVisible;
+      const showCmd = next && next.type === "command" && totalVisible > idx + 1;
+      return (
+        <div key={`${loopKey}-${i}`} className="flex">
+          <span className={colorMap.prompt}>{line.text}</span>
+          {showCmd && <span className={colorMap.command}>{next.text}</span>}
+        </div>
+      );
+    }
+
+    if (line.type === "command") return null;
+
+    return (
+      <div key={`${loopKey}-${i}`} className={colorMap[line.type]}>
+        {line.text}
+      </div>
+    );
+  };
+
+  return (
+    <div ref={ref} className="overflow-hidden rounded-xl border border-card-border bg-[#0c1222] shadow-xl">
+      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+        <span className="h-3 w-3 rounded-full bg-red-500/80" />
+        <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
+        <span className="h-3 w-3 rounded-full bg-green-500/80" />
+        <span className="ml-3 text-xs font-mono text-white/40">terminal</span>
+      </div>
+      <div className="h-[340px] overflow-hidden p-5 font-mono text-[13px] leading-relaxed sm:h-[360px] sm:text-[15px]">
+        {introLines.slice(0, introVisible).map((line, i) => renderLine(line, i))}
+        {introVisible >= introLines.length &&
+          loopLines.slice(0, loopVisible).map((line, i) => renderLine(line, i + introLines.length))}
+        {isInView && (
+          <span className="inline-block h-4 w-2 animate-pulse bg-blue-400" />
+        )}
+      </div>
+    </div>
+  );
+}
 
 const contactInfo = [
   { label: "Email", value: "hamed.dawoudzai@mail.utoronto.ca" },
@@ -44,10 +175,17 @@ export default function About() {
             I interned at Traveltical and Appy.yo. I&apos;m always looking to
             gain more experience as a software engineer and take on new challenges.
           </p>
+          <p className="text-lg leading-relaxed text-muted lg:text-xl">
+            My long-term goal is to move to the United States and work as a
+            software engineer where I can make a real impact, building products
+            that people actually use every day.
+          </p>
 
-          <div className="grid grid-cols-1 gap-8 pt-8 sm:grid-cols-3">
+          <TerminalBlock />
+
+          <div className="flex flex-col gap-6 pt-8 sm:flex-row sm:gap-12">
             {contactInfo.map((item) => (
-              <div key={item.label} className="min-w-0">
+              <div key={item.label}>
                 <p className="text-sm font-bold uppercase tracking-widest text-foreground">
                   {item.label}
                 </p>

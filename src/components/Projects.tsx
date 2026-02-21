@@ -74,8 +74,8 @@ export default function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="flex flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all hover:shadow-lg lg:flex-row"
           >
+          <div className="flex flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:flex-row">
             <div className="flex items-center justify-center bg-card-border/20 p-10 lg:w-80 lg:flex-shrink-0">
               <div className="relative h-40 w-40 lg:h-52 lg:w-52">
                 <Image
@@ -88,7 +88,7 @@ export default function Projects() {
             </div>
 
             <div className="flex-1 p-8 lg:p-10">
-              <h3 className="text-2xl font-semibold text-foreground lg:text-3xl">
+              <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground lg:text-3xl">
                 {project.name}
               </h3>
               <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-accent lg:text-base">
@@ -133,6 +133,7 @@ export default function Projects() {
                 </svg>
               </a>
             </div>
+          </div>
           </motion.div>
         ))}
       </div>

@@ -84,8 +84,8 @@ export default function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="rounded-xl border border-card-border bg-card p-8 transition-all hover:shadow-lg lg:p-10"
           >
+          <div className="rounded-xl border border-card-border border-l-4 border-l-accent bg-card p-8 transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:p-10">
             <div className="flex items-start gap-5">
               <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl lg:h-24 lg:w-24">
                 <Image
@@ -98,16 +98,21 @@ export default function Experience() {
               <div className="flex-1">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground lg:text-2xl">
+                    <h3 className="font-serif text-xl font-semibold tracking-tight text-foreground lg:text-2xl">
                       {job.role}
                     </h3>
                     <p className="text-base font-medium text-foreground/80 lg:text-lg">
                       {job.company}
                     </p>
                   </div>
-                  <p className="text-base text-muted">
-                    {job.period} · {job.location}
-                  </p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent ring-1 ring-accent/25">
+                      {job.period}
+                    </span>
+                    <span className="inline-block rounded-full bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-blue-400 ring-1 ring-blue-400/25">
+                      {job.location}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,6 +128,7 @@ export default function Experience() {
                 </li>
               ))}
             </ul>
+          </div>
           </motion.div>
         ))}
       </div>

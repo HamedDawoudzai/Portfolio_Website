@@ -141,7 +141,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <p className="text-base leading-relaxed text-muted lg:text-lg">
+            <p className="whitespace-nowrap text-sm leading-relaxed text-muted sm:text-base lg:text-lg">
               SWE Intern @ RBC | Prev @ Traveltical, Appy.yo | CS @ University of Toronto
             </p>
 
@@ -157,37 +157,22 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="flex items-center gap-5 pt-2"
             >
-              <a
-                href="https://github.com/hameddawoudzai"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-card-border bg-card text-foreground transition-all hover:border-accent hover:text-accent hover:scale-110"
-              >
-                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/hamed-dawoudzai-219742290/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0077b5] text-white transition-all hover:scale-110 hover:brightness-110"
-              >
-                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a
-                href="mailto:hamed.dawoudzai@mail.utoronto.ca"
-                aria-label="Email"
-                className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ea4335] text-white transition-all hover:scale-110 hover:brightness-110"
-              >
-                <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </a>
+              {[
+                { href: "https://github.com/hameddawoudzai", label: "GitHub", icon: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg> },
+                { href: "https://www.linkedin.com/in/hamed-dawoudzai-219742290/", label: "LinkedIn", icon: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
+                { href: "mailto:hamed.dawoudzai@mail.utoronto.ca", label: "Email", icon: <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={link.label}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-card-border text-muted transition-all hover:border-accent hover:text-accent hover:scale-110"
+                >
+                  {link.icon}
+                </a>
+              ))}
             </motion.div>
 
             {/* Buttons */}
@@ -200,7 +185,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download="Hamed_Dawoudzai_Resume.pdf"
-                className="inline-flex items-center gap-2 rounded-md border-2 border-accent bg-accent px-8 py-3.5 text-sm font-bold uppercase tracking-[0.18em] text-white transition-all hover:bg-transparent hover:text-accent active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-accent bg-accent px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white transition-all hover:bg-transparent hover:text-accent active:scale-[0.97]"
               >
                 Download Resume
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -209,7 +194,7 @@ export default function Hero() {
               </a>
               <button
                 onClick={() => setResumeOpen(true)}
-                className="inline-flex items-center gap-2 rounded-md border-2 border-accent bg-transparent px-8 py-3.5 text-sm font-bold uppercase tracking-[0.18em] text-accent transition-all hover:bg-accent hover:text-white active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-accent bg-transparent px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-accent transition-all hover:bg-accent hover:text-white active:scale-[0.97]"
               >
                 View Resume
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -228,8 +213,8 @@ export default function Hero() {
             className="flex-shrink-0"
           >
             <div className="relative h-72 w-72 sm:h-80 sm:w-80 lg:h-[24rem] lg:w-[24rem]">
-              <div className="absolute inset-0 rounded-full border-2 border-accent/30" />
-              <div className="absolute inset-3 overflow-hidden rounded-full border-2 border-card-border bg-card">
+              <div className="absolute inset-0 rounded-full shadow-[0_0_80px_rgba(59,130,246,0.25)]" />
+              <div className="absolute inset-2 overflow-hidden rounded-full ring-2 ring-accent/20">
                 <Image
                   src="/images/pfp_logo.jpg"
                   alt="Hamed Dawoudzai"
@@ -249,10 +234,20 @@ export default function Hero() {
           transition={{ delay: 1, duration: 0.5 }}
           className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
         >
-          <span className="text-sm uppercase tracking-[0.25em] text-muted">
+          <span className="text-xs uppercase tracking-[0.25em] text-muted">
             Scroll
           </span>
-          <span className="h-10 w-px animate-pulse bg-accent" />
+          <motion.svg
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="h-5 w-5 text-accent"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </motion.svg>
         </motion.div>
       </section>
     </>
