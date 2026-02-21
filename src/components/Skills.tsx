@@ -59,17 +59,20 @@ const rowVariants = {
 export default function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 py-16 md:py-24">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-8 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+        className="mb-8 flex items-center gap-3"
       >
-        Technical Skills
-      </motion.h2>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          Technical Skills
+        </h2>
+        <span className="h-px flex-1 bg-card-border" />
+      </motion.div>
 
-      <div className="space-y-6">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((category, i) => (
           <motion.div
             key={category.label}
@@ -78,15 +81,16 @@ export default function Skills() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-30px" }}
+            className="rounded-xl border border-card-border bg-card/50 p-5 transition-all hover:border-accent/30 hover:shadow-md hover:shadow-accent/5"
           >
-            <h3 className="mb-2.5 text-sm font-semibold uppercase tracking-wider text-muted">
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
               {category.label}
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {category.items.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-lg border border-stone-200 bg-stone-50/80 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/5 dark:border-stone-800 dark:bg-stone-900/40 dark:hover:border-accent/40 dark:hover:bg-accent/5"
+                  className="rounded-md border border-card-border bg-background px-2.5 py-1 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/5"
                 >
                   {skill}
                 </span>

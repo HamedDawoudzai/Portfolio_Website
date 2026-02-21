@@ -58,17 +58,20 @@ const cardVariants = {
 export default function Experience() {
   return (
     <section id="experience" className="scroll-mt-24 py-16 md:py-24">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-8 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+        className="mb-8 flex items-center gap-3"
       >
-        Experience
-      </motion.h2>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          Experience
+        </h2>
+        <span className="h-px flex-1 bg-card-border" />
+      </motion.div>
 
-      <div className="relative space-y-8 pl-6 before:absolute before:left-0 before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-stone-200 dark:before:bg-stone-800">
+      <div className="relative space-y-6 pl-6 before:absolute before:left-0 before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-gradient-to-b before:from-accent before:via-accent/40 before:to-transparent">
         {jobs.map((job, i) => (
           <motion.div
             key={job.company}
@@ -77,31 +80,32 @@ export default function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="relative rounded-lg border border-stone-200 bg-stone-50/50 p-6 dark:border-stone-800 dark:bg-stone-900/30 md:p-8"
+            className="group relative rounded-xl border border-card-border bg-card/50 p-6 transition-all hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 md:p-8"
           >
-            {/* timeline dot */}
-            <span className="absolute -left-[27px] top-7 h-3 w-3 rounded-full border-2 border-accent bg-background" />
+            <span className="absolute -left-[27px] top-7 h-3 w-3 rounded-full border-2 border-accent bg-background transition-colors group-hover:bg-accent" />
 
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <h3 className="text-lg font-medium text-foreground">
                   {job.company}
                 </h3>
                 <p className="text-muted">{job.role}</p>
               </div>
-              <div className="mt-1 flex flex-col items-start text-sm sm:mt-0 sm:items-end">
-                <span className="font-medium text-accent">{job.period}</span>
-                <span className="text-muted">{job.location}</span>
+              <div className="flex flex-col items-start gap-1 sm:items-end">
+                <span className="inline-flex shrink-0 items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                  {job.period}
+                </span>
+                <span className="text-sm text-muted">{job.location}</span>
               </div>
             </div>
 
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 space-y-2.5">
               {job.bullets.map((bullet, idx) => (
                 <li
                   key={idx}
-                  className="flex gap-2 text-sm leading-relaxed text-muted"
+                  className="flex gap-3 text-sm leading-relaxed text-muted"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent/60" />
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent/60" />
                   {bullet}
                 </li>
               ))}
