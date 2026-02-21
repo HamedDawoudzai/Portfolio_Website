@@ -45,13 +45,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`section-dark sticky top-0 z-50 transition-all duration-300 ${
+      className={`section-dark sticky top-0 z-50 bg-background transition-all duration-300 ${
         scrolled
-          ? "border-b border-card-border bg-background/90 shadow-lg shadow-black/20 backdrop-blur-lg"
-          : "bg-background/60 backdrop-blur-sm"
+          ? "border-b border-card-border shadow-lg shadow-black/20"
+          : ""
       }`}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 md:px-8">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-10 md:px-12 lg:px-16">
         <a
           href="#"
           className="font-serif text-xl font-bold tracking-tight text-accent transition-opacity hover:opacity-80"

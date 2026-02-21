@@ -11,55 +11,54 @@ const contactInfo = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-20 md:py-28">
+    <section id="about" className="scroll-mt-24 py-24 md:py-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">
           About Me
         </h2>
-        <span className="mt-3 block h-0.5 w-12 rounded-full bg-accent" />
+        <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="mt-12 flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
-        {/* Left — text */}
+      <div className="mt-16 flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-          className="flex-1 space-y-5"
+          className="flex-1 space-y-6"
         >
-          <p className="leading-relaxed text-muted">
-            I&apos;m a Computer Science student at the University of Toronto on
-            the co-op program. I&apos;m passionate about backend engineering and
-            full-stack development — building software that scales and solves
-            real problems.
+          <p className="text-lg leading-relaxed text-muted lg:text-xl">
+            I&apos;m a fourth-year Computer Science student at the University of
+            Toronto. I&apos;m passionate about backend engineering and full-stack
+            development, building software that scales and solves real problems.
           </p>
-          <p className="leading-relaxed text-muted">
+          <p className="text-lg leading-relaxed text-muted lg:text-xl">
             Currently, I&apos;m working as a Software Developer Intern at RBC on
             the U.S. Cash Management team, building Java Spring Boot
             microservices for high-volume corporate payment processing. Previously,
-            I interned at Traveltical and Appy.yo.
+            I interned at Traveltical and Appy.yo. I&apos;m always looking to
+            gain more experience as a software engineer and take on new challenges.
           </p>
 
-          {/* Contact info grid */}
-          <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 pt-8 sm:grid-cols-3">
             {contactInfo.map((item) => (
-              <div key={item.label}>
-                <p className="text-xs font-semibold uppercase tracking-wider text-foreground">
+              <div key={item.label} className="min-w-0">
+                <p className="text-sm font-bold uppercase tracking-widest text-foreground">
                   {item.label}
                 </p>
-                <p className="mt-1 text-sm text-muted">{item.value}</p>
+                <p className="mt-2 whitespace-nowrap text-base text-muted">
+                  {item.value}
+                </p>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* Right — city image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -67,7 +66,7 @@ export default function About() {
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           className="flex-shrink-0"
         >
-          <div className="relative h-72 w-full overflow-hidden rounded-xl border-2 border-card-border shadow-lg sm:h-80 md:h-96 md:w-80">
+          <div className="relative h-80 w-full overflow-hidden rounded-xl border-2 border-card-border shadow-lg sm:h-96 lg:h-[480px] lg:w-96">
             <Image
               src="/images/city_view.png"
               alt="Toronto skyline"

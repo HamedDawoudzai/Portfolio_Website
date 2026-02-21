@@ -18,7 +18,7 @@ function Band({
     <div
       className={`${variant === "dark" ? "section-dark" : "section-light"} bg-background text-foreground transition-colors`}
     >
-      <div className="mx-auto max-w-4xl px-6 md:px-8">{children}</div>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10 md:px-12 lg:px-16">{children}</div>
     </div>
   );
 }
@@ -32,19 +32,19 @@ export default function Home() {
       <Band variant="light">
         <About />
       </Band>
-      <Band variant="light">
+      <Band variant="dark">
         <Experience />
       </Band>
-      <Band variant="dark">
+      <Band variant="light">
         <Education />
       </Band>
-      <Band variant="light">
+      <Band variant="dark">
         <Projects />
       </Band>
-      <Band variant="dark">
+      <Band variant="light">
         <Skills />
       </Band>
-      <Band variant="light">
+      <Band variant="dark">
         <Contact />
       </Band>
       <ScrollToTop />

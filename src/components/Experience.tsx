@@ -16,7 +16,7 @@ const jobs: Job[] = [
   {
     company: "Royal Bank of Canada",
     logo: "/images/RBC_logo.png",
-    role: "Software Developer Intern — U.S. Cash Management",
+    role: "Software Developer Intern, U.S. Cash Management",
     period: "Jan 2026 – Present",
     location: "Toronto, ON",
     bullets: [
@@ -62,20 +62,20 @@ const cardVariants = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 py-20 md:py-28">
+    <section id="experience" className="scroll-mt-24 py-24 md:py-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">
           Experience
         </h2>
-        <span className="mt-3 block h-0.5 w-12 rounded-full bg-accent" />
+        <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="mt-10 space-y-6">
+      <div className="mt-12 space-y-8">
         {jobs.map((job, i) => (
           <motion.div
             key={job.company}
@@ -84,41 +84,41 @@ export default function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="rounded-xl border border-card-border bg-card p-6 transition-all hover:shadow-lg md:p-8"
+            className="rounded-xl border border-card-border bg-card p-8 transition-all hover:shadow-lg lg:p-10"
           >
-            <div className="flex items-start gap-4">
-              <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg border border-card-border bg-white">
+            <div className="flex items-start gap-5">
+              <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl lg:h-24 lg:w-24">
                 <Image
                   src={job.logo}
                   alt={`${job.company} logo`}
                   fill
-                  className="object-contain p-1.5"
+                  className="object-contain"
                 />
               </div>
               <div className="flex-1">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h3 className="text-base font-semibold text-foreground">
+                    <h3 className="text-xl font-semibold text-foreground lg:text-2xl">
                       {job.role}
                     </h3>
-                    <p className="text-sm font-medium text-foreground/80">
+                    <p className="text-base font-medium text-foreground/80 lg:text-lg">
                       {job.company}
                     </p>
                   </div>
-                  <p className="text-sm text-muted">
+                  <p className="text-base text-muted">
                     {job.period} · {job.location}
                   </p>
                 </div>
               </div>
             </div>
 
-            <ul className="mt-5 space-y-2.5 pl-16">
+            <ul className="mt-3 space-y-3 pl-[6.25rem] lg:pl-[7.25rem]">
               {job.bullets.map((bullet, idx) => (
                 <li
                   key={idx}
-                  className="flex gap-3 text-sm leading-relaxed text-muted"
+                  className="flex gap-3 text-base leading-relaxed text-muted lg:text-lg"
                 >
-                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
+                  <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                   {bullet}
                 </li>
               ))}

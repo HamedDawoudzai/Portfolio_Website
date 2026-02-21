@@ -3,20 +3,20 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #faf8f2;
+  --background: #f7f7f5;
   --foreground: #1a1a1a;
-  --accent: #c9a84c;
-  --accent-light: #d4b86a;
+  --accent: #10b981;
+  --accent-light: #34d399;
   --muted: #6b7280;
   --card: #ffffff;
-  --card-border: #e5e0d5;
+  --card-border: #e5e5e3;
 }
 
 .dark {
   --background: #0a0a0a;
   --foreground: #f5f5f5;
-  --accent: #d4b86a;
-  --accent-light: #e0c87e;
+  --accent: #34d399;
+  --accent-light: #6ee7b7;
   --muted: #9ca3af;
   --card: #18181b;
   --card-border: #27272a;
@@ -25,11 +25,11 @@
 /* ── Alternating section bands ── */
 
 .section-dark {
-  --background: #0f1729;
+  --background: #111827;
   --foreground: #f1f1f1;
   --muted: #94a3b8;
-  --card: #182038;
-  --card-border: #263354;
+  --card: #1e293b;
+  --card-border: #334155;
 }
 .dark .section-dark {
   --background: #09090b;
@@ -40,11 +40,11 @@
 }
 
 .section-light {
-  --background: #faf8f2;
+  --background: #f7f7f5;
   --foreground: #1a1a1a;
   --muted: #6b7280;
   --card: #ffffff;
-  --card-border: #e5e0d5;
+  --card-border: #e5e5e3;
 }
 .dark .section-light {
   --background: #111113;
