@@ -1,3 +1,4 @@
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
@@ -29,10 +30,13 @@ export default function Home() {
         <Hero />
       </Band>
       <Band variant="light">
-        <Education />
+        <About />
+      </Band>
+      <Band variant="light">
+        <Experience />
       </Band>
       <Band variant="dark">
-        <Experience />
+        <Education />
       </Band>
       <Band variant="light">
         <Projects />

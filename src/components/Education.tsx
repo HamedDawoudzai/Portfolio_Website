@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const education = {
   school: "University of Toronto",
+  logo: "/images/UofT_logo.png",
   degree: "Bachelor of Science in Computer Science",
-  location: "Toronto, Ontario",
-  period: "Sep 2022 – Apr 2027",
+  period: "September 2022 – April 2027",
   courses: [
     "Data Structures and Algorithms",
     "System Design",
@@ -17,50 +18,53 @@ const education = {
 
 export default function Education() {
   return (
-    <section id="education" className="scroll-mt-24 py-16 md:py-24">
+    <section id="education" className="scroll-mt-24 py-20 md:py-28">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="space-y-6"
       >
-        <div className="flex items-center gap-3">
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Education
-          </h2>
-          <span className="h-px flex-1 bg-card-border" />
+        <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          Education
+        </h2>
+        <span className="mt-3 block h-0.5 w-12 rounded-full bg-accent" />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ delay: 0.15, duration: 0.5, ease: "easeOut" }}
+        className="mt-10 rounded-xl border border-card-border bg-card p-6 md:p-8"
+      >
+        <div className="flex items-start gap-4">
+          <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg border border-card-border bg-white">
+            <Image
+              src={education.logo}
+              alt="University of Toronto logo"
+              fill
+              className="object-contain p-1"
+            />
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold text-foreground">
+              {education.school}
+            </h3>
+            <p className="text-muted">{education.degree}</p>
+            <p className="mt-1 text-sm text-accent">{education.period}</p>
+          </div>
         </div>
 
-        <div className="group rounded-xl border border-card-border bg-card/50 p-6 transition-all hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 md:p-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-            <div className="space-y-1.5">
-              <h3 className="text-lg font-medium text-foreground">
-                {education.school}
-              </h3>
-              <p className="text-muted">{education.degree}</p>
-              <p className="text-sm text-muted">{education.location}</p>
-            </div>
-            <span className="inline-flex shrink-0 items-center rounded-full bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
-              {education.period}
+        <div className="mt-6 flex flex-wrap gap-2 pl-[4.5rem]">
+          {education.courses.map((course) => (
+            <span
+              key={course}
+              className="rounded-md border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+            >
+              {course}
             </span>
-          </div>
-
-          <div className="mt-5 border-t border-card-border pt-5">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
-              Relevant Coursework
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {education.courses.map((course) => (
-                <span
-                  key={course}
-                  className="rounded-lg border border-card-border bg-background px-3 py-1.5 text-sm text-foreground transition-colors hover:border-accent/40 hover:bg-accent/5"
-                >
-                  {course}
-                </span>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </motion.div>
     </section>

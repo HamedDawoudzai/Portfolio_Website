@@ -3,55 +3,55 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --accent: #0f766e;
-  --accent-light: #14b8a6;
-  --muted: #78716c;
-  --card: #f5f5f4;
-  --card-border: #e7e5e4;
+  --background: #faf8f2;
+  --foreground: #1a1a1a;
+  --accent: #c9a84c;
+  --accent-light: #d4b86a;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --card-border: #e5e0d5;
 }
 
 .dark {
-  --background: #0c0a09;
-  --foreground: #fafaf9;
-  --accent: #2dd4bf;
-  --accent-light: #5eead4;
-  --muted: #a8a29e;
-  --card: #1c1917;
-  --card-border: #292524;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --accent: #d4b86a;
+  --accent-light: #e0c87e;
+  --muted: #9ca3af;
+  --card: #18181b;
+  --card-border: #27272a;
 }
 
 /* ── Alternating section bands ── */
 
 .section-dark {
-  --background: #0d1f1e;
-  --foreground: #f5f5f4;
-  --muted: #a8a29e;
-  --card: #152e2c;
-  --card-border: #1e3d3a;
+  --background: #0f1729;
+  --foreground: #f1f1f1;
+  --muted: #94a3b8;
+  --card: #182038;
+  --card-border: #263354;
 }
 .dark .section-dark {
-  --background: #0c0a09;
-  --foreground: #fafaf9;
-  --muted: #a8a29e;
-  --card: #1c1917;
-  --card-border: #292524;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --card: #141418;
+  --card-border: #27272a;
 }
 
 .section-light {
-  --background: #fef8f3;
-  --foreground: #1c1917;
-  --muted: #78716c;
-  --card: #fff5ed;
-  --card-border: #f0dfd0;
+  --background: #faf8f2;
+  --foreground: #1a1a1a;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --card-border: #e5e0d5;
 }
 .dark .section-light {
-  --background: #161211;
-  --foreground: #fafaf9;
-  --muted: #a8a29e;
-  --card: #1e1a18;
-  --card-border: #2e2724;
+  --background: #111113;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --card: #1c1c1f;
+  --card-border: #27272a;
 }
 
 @theme inline {
@@ -64,6 +64,7 @@
   --color-card-border: var(--card-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
 }
 
 body {
@@ -79,23 +80,4 @@ html {
 ::selection {
   background-color: var(--accent);
   color: #fff;
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 6s ease infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
 }

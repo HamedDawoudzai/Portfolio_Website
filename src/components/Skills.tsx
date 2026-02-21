@@ -14,17 +14,7 @@ const skills: SkillCategory[] = [
   },
   {
     label: "Backend & APIs",
-    items: [
-      "Spring Boot",
-      "Node.js",
-      "REST APIs",
-      "JWT",
-      "Redis",
-      "PostgreSQL",
-      "Kafka",
-      "Distributed Systems",
-      "MVC",
-    ],
+    items: ["Spring Boot", "Node.js", "REST APIs", "JWT", "Redis", "PostgreSQL", "Kafka", "Distributed Systems", "MVC"],
   },
   {
     label: "Frontend",
@@ -36,14 +26,7 @@ const skills: SkillCategory[] = [
   },
   {
     label: "Testing & Practices",
-    items: [
-      "Unit Testing",
-      "JUnit",
-      "Mockito",
-      "Agile / Scrum",
-      "Object-Oriented Design",
-      "JIRA",
-    ],
+    items: ["Unit Testing", "JUnit", "Mockito", "Agile / Scrum", "Object-Oriented Design", "JIRA"],
   },
 ];
 
@@ -52,27 +35,26 @@ const rowVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" as const },
+    transition: { delay: i * 0.08, duration: 0.4, ease: "easeOut" as const },
   }),
 };
 
 export default function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 py-16 md:py-24">
+    <section id="skills" className="scroll-mt-24 py-20 md:py-28">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-8 flex items-center gap-3"
       >
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-          Technical Skills
+        <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          Skills
         </h2>
-        <span className="h-px flex-1 bg-card-border" />
+        <span className="mt-3 block h-0.5 w-12 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((category, i) => (
           <motion.div
             key={category.label}
@@ -81,9 +63,9 @@ export default function Skills() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-30px" }}
-            className="rounded-xl border border-card-border bg-card/50 p-5 transition-all hover:border-accent/30 hover:shadow-md hover:shadow-accent/5"
+            className="rounded-xl border border-card-border bg-card p-5 transition-all hover:shadow-lg"
           >
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-accent">
               {category.label}
             </h3>
             <div className="flex flex-wrap gap-1.5">

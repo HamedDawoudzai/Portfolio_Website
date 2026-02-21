@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Job {
   company: string;
+  logo: string;
   role: string;
   period: string;
   location: string;
@@ -12,7 +14,8 @@ interface Job {
 
 const jobs: Job[] = [
   {
-    company: "Royal Bank of Canada (RBC)",
+    company: "Royal Bank of Canada",
+    logo: "/images/RBC_logo.png",
     role: "Software Developer Intern — U.S. Cash Management",
     period: "Jan 2026 – Present",
     location: "Toronto, ON",
@@ -25,6 +28,7 @@ const jobs: Job[] = [
   },
   {
     company: "Traveltical",
+    logo: "/images/Traveltical_logo.png",
     role: "Software Engineer Intern",
     period: "Sep 2025 – Dec 2025",
     location: "Toronto, ON",
@@ -35,6 +39,7 @@ const jobs: Job[] = [
   },
   {
     company: "Appy.yo",
+    logo: "/images/appyo_logo.png",
     role: "Software Engineer Intern",
     period: "May 2025 – Aug 2025",
     location: "Toronto, ON",
@@ -57,21 +62,20 @@ const cardVariants = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 py-16 md:py-24">
+    <section id="experience" className="scroll-mt-24 py-20 md:py-28">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-8 flex items-center gap-3"
       >
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
           Experience
         </h2>
-        <span className="h-px flex-1 bg-card-border" />
+        <span className="mt-3 block h-0.5 w-12 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="relative space-y-6 pl-6 before:absolute before:left-0 before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-gradient-to-b before:from-accent before:via-accent/40 before:to-transparent">
+      <div className="mt-10 space-y-6">
         {jobs.map((job, i) => (
           <motion.div
             key={job.company}
@@ -80,32 +84,41 @@ export default function Experience() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="group relative rounded-xl border border-card-border bg-card/50 p-6 transition-all hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 md:p-8"
+            className="rounded-xl border border-card-border bg-card p-6 transition-all hover:shadow-lg md:p-8"
           >
-            <span className="absolute -left-[27px] top-7 h-3 w-3 rounded-full border-2 border-accent bg-background transition-colors group-hover:bg-accent" />
-
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h3 className="text-lg font-medium text-foreground">
-                  {job.company}
-                </h3>
-                <p className="text-muted">{job.role}</p>
+            <div className="flex items-start gap-4">
+              <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg border border-card-border bg-white">
+                <Image
+                  src={job.logo}
+                  alt={`${job.company} logo`}
+                  fill
+                  className="object-contain p-1.5"
+                />
               </div>
-              <div className="flex flex-col items-start gap-1 sm:items-end">
-                <span className="inline-flex shrink-0 items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-                  {job.period}
-                </span>
-                <span className="text-sm text-muted">{job.location}</span>
+              <div className="flex-1">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 className="text-base font-semibold text-foreground">
+                      {job.role}
+                    </h3>
+                    <p className="text-sm font-medium text-foreground/80">
+                      {job.company}
+                    </p>
+                  </div>
+                  <p className="text-sm text-muted">
+                    {job.period} · {job.location}
+                  </p>
+                </div>
               </div>
             </div>
 
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-5 space-y-2.5 pl-16">
               {job.bullets.map((bullet, idx) => (
                 <li
                   key={idx}
                   className="flex gap-3 text-sm leading-relaxed text-muted"
                 >
-                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent/60" />
+                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent" />
                   {bullet}
                 </li>
               ))}
