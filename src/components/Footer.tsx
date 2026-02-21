@@ -30,8 +30,8 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-card-border">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-6 py-10 sm:flex-row sm:justify-between md:px-8">
+    <footer className="section-dark bg-background text-foreground">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 border-t border-card-border px-6 py-10 sm:flex-row sm:justify-between md:px-8">
         <p className="text-sm text-muted">
           &copy; {new Date().getFullYear()} Hamed Dawoudzai. Built with Next.js
           &amp; Tailwind CSS.

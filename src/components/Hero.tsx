@@ -77,10 +77,9 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[85vh] flex-col justify-center py-20 md:py-28">
-      {/* Decorative gradient blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
       </div>
 
       <motion.div
@@ -98,7 +97,7 @@ export default function Hero() {
           Welcome to my portfolio
         </motion.p>
 
-        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           Hamed Dawoudzai
         </h1>
 
@@ -128,7 +127,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-background transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/20 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/25 active:scale-[0.98]"
           >
             Get in Touch
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -138,7 +137,7 @@ export default function Hero() {
           <a
             href="/resume.pdf"
             target="_blank"
-            className="inline-flex items-center gap-2 rounded-lg border border-card-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:border-accent/40 hover:bg-accent/5 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-lg border border-card-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:border-accent/40 hover:bg-accent/10 hover:scale-[1.02] active:scale-[0.98]"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

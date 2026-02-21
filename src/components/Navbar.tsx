@@ -47,10 +47,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`section-dark sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-card-border bg-background/80 shadow-sm backdrop-blur-lg"
-          : "bg-transparent"
+          ? "border-b border-card-border bg-background/90 shadow-lg shadow-black/10 backdrop-blur-lg"
+          : "bg-background/60 backdrop-blur-sm"
       }`}
     >
       <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 md:px-8">
@@ -58,7 +58,7 @@ export default function Navbar() {
           href="#"
           className="group flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-background transition-transform group-hover:scale-110">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-white transition-transform group-hover:scale-110">
             HD
           </span>
         </a>
