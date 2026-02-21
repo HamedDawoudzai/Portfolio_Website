@@ -25,7 +25,7 @@ const projects: Project[] = [
       "Built a full-stack hybrid trading platform leveraging Polygon.io and Coinbase Exchange API, capable of supporting 1,000+ users.",
       "Optimized backend performance using Redis caching (TTL-based), reducing external API calls by 50% and ensuring transactional safety with PostgreSQL.",
     ],
-    github: "https://github.com/hameddawoudzai/hybrid-exchange",
+    github: "https://github.com/HamedDawoudzai/hybrid_exchange",
   },
   {
     name: "Rewardly",
