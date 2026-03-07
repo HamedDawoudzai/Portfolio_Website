@@ -28,6 +28,18 @@ const projects: Project[] = [
     github: "https://github.com/HamedDawoudzai/hybrid_exchange",
   },
   {
+    name: "Rewardly",
+    subtitle: "Loyalty Points Management System",
+    logo: "/images/Rewardly_logo.png",
+    description:
+      "A full-stack loyalty platform with role-based access control, transaction processing, and promotional campaigns.",
+    tech: ["JavaScript", "React", "Node.js", "SQLite", "Prisma", "JWT", "Express"],
+    bullets: [
+      "Built a full-stack loyalty points platform with role-based access control (4 roles), transaction processing, and promotional campaigns, capable of supporting 10,000+ concurrent users.",
+    ],
+    github: "https://github.com/hameddawoudzai/rewardly",
+  },
+  {
     name: "Android CMS Informations App",
     subtitle: "Course Management System for Android",
     logo: "/images/project-placeholder.svg",
@@ -40,18 +52,6 @@ const projects: Project[] = [
       "Implemented MVP architecture with View Binding, Material Design, and unit/integration tests using JUnit, Espresso, and Mockito.",
     ],
     github: "https://github.com/HamedDawoudzai/Android-CMS-Informations-App",
-  },
-  {
-    name: "Rewardly",
-    subtitle: "Loyalty Points Management System",
-    logo: "/images/Rewardly_logo.png",
-    description:
-      "A full-stack loyalty platform with role-based access control, transaction processing, and promotional campaigns.",
-    tech: ["JavaScript", "React", "Node.js", "SQLite", "Prisma", "JWT", "Express"],
-    bullets: [
-      "Built a full-stack loyalty points platform with role-based access control (4 roles), transaction processing, and promotional campaigns, capable of supporting 10,000+ concurrent users.",
-    ],
-    github: "https://github.com/hameddawoudzai/rewardly",
   },
 ];
 
