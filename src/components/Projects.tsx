@@ -28,6 +28,20 @@ const projects: Project[] = [
     github: "https://github.com/HamedDawoudzai/hybrid_exchange",
   },
   {
+    name: "Android CMS Informations App",
+    subtitle: "Course Management System for Android",
+    logo: "/images/project-placeholder.svg",
+    description:
+      "An Android app for a Course Management System (CMS) with separate flows for students and admins, built with Java and Firebase.",
+    tech: ["Java", "Firebase", "Firebase Auth", "AndroidX", "View Binding", "JUnit", "Espresso", "Mockito"],
+    bullets: [
+      "Built an Android app with dual user flows: students (complaints, POSt eligibility checks, events, RSVP, announcements) and admins (event management, complaint viewing, announcements).",
+      "Integrated Firebase Realtime Database, Firebase Auth, and Firebase Messaging for data storage, authentication, and push notifications.",
+      "Implemented MVP architecture with View Binding, Material Design, and unit/integration tests using JUnit, Espresso, and Mockito.",
+    ],
+    github: "https://github.com/HamedDawoudzai/Android-CMS-Informations-App",
+  },
+  {
     name: "Rewardly",
     subtitle: "Loyalty Points Management System",
     logo: "/images/Rewardly_logo.png",
