@@ -153,6 +153,7 @@ export default function Contact() {
               id="name"
               type="text"
               required
+              autoComplete="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full rounded-lg border border-card-border bg-card px-4 py-3 text-base text-foreground placeholder-muted outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
@@ -167,6 +168,7 @@ export default function Contact() {
               id="email"
               type="email"
               required
+              autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="w-full rounded-lg border border-card-border bg-card px-4 py-3 text-base text-foreground placeholder-muted outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
