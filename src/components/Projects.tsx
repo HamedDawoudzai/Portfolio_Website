@@ -119,6 +119,7 @@ export default function Projects() {
                     src={project.logo}
                     alt={`${project.name} logo`}
                     fill
+                    sizes="(min-width: 1024px) 80px, 64px"
                     className="object-contain"
                   />
                 </div>
