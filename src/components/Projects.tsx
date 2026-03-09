@@ -161,10 +161,12 @@ export default function Projects() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View ${project.name} repository`}
+                title={`View ${project.name} repository`}
                 className="mt-4 inline-flex items-center gap-2 rounded-md border-2 border-accent bg-transparent px-5 py-2 text-sm font-bold uppercase tracking-[0.15em] text-accent transition-all hover:bg-accent hover:text-white sm:mt-5"
               >
                 View Project
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg aria-hidden="true" focusable="false" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
