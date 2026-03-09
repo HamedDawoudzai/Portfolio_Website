@@ -15,15 +15,18 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Hybrid Stock & Crypto Exchange",
-    subtitle: "Full-Stack Trading Platform",
+    name: "HD Investing Corporation",
+    subtitle: "Premium Hybrid Stock & Cryptocurrency Trading Platform",
     logo: "/images/hd_logo.png",
     description:
-      "A hybrid trading platform for stocks and cryptocurrencies with real-time market data, order execution, and portfolio management.",
-    tech: ["Spring Boot", "Next.js", "React", "PostgreSQL", "Redis", "Polygon API", "Coinbase API"],
+      "A full-stack trading platform that unifies stock and cryptocurrency markets in one interface. Users manage portfolios, execute market/limit/stop-loss orders, track real-time prices, monitor performance with interactive charts, and maintain a personal watchlist in a premium dark UI with gold accents.",
+    tech: ["Java", "Spring Boot", "Next.js", "TypeScript", "PostgreSQL", "Redis", "TailwindCSS", "Docker", "JWT"],
     bullets: [
-      "Built a full-stack hybrid trading platform leveraging Polygon.io and Coinbase Exchange API, capable of supporting 1,000+ users.",
-      "Optimized backend performance using Redis caching (TTL-based), reducing external API calls by 50% and ensuring transactional safety with PostgreSQL.",
+      "Built a production-grade monorepo with Spring Boot REST API and Next.js frontend, integrating Polygon.io (stocks) and Coinbase Exchange (crypto) for live market data and real-time prices.",
+      "Implemented JWT auth, portfolio management with market/limit/stop-loss orders, server-side watchlist sync across sessions, and unified trade page with tab filters (All / Stocks / Crypto).",
+      "Added interactive Recharts performance charts with configurable intervals (1m–1d), transaction history audit trail, and holdings breakdown with cost basis and P&L per asset.",
+      "Optimized backend with Redis caching (5-min TTL) to reduce external API calls; PostgreSQL for transactional safety; Docker for PostgreSQL and Redis infrastructure.",
+      "Delivered premium dark UI with gold accents across landing, dashboard, trade, portfolio, and transaction history views with responsive layouts.",
     ],
     github: "https://github.com/HamedDawoudzai/hybrid_exchange",
   },
