@@ -32,15 +32,19 @@ const projects: Project[] = [
   },
   {
     name: "Rewardly",
-    subtitle: "Loyalty Points Management System",
+    subtitle: "Modern Loyalty Points Management System",
     logo: "/images/Rewardly_logo.png",
     description:
-      "A full-stack loyalty platform with role-based access control, transaction processing, and promotional campaigns.",
-    tech: ["JavaScript", "React", "Node.js", "SQLite", "Prisma", "JWT", "Express"],
+      "A full-stack loyalty platform for businesses to reward customer engagement. Features RBAC with role-specific dashboards, transaction processing (purchases, redemptions, transfers), real-time analytics with linear regression trends, event management with RSVP, and promotional campaigns—all with dark mode support.",
+    tech: ["JavaScript", "Node.js", "React", "Express", "Prisma", "SQLite", "Redis", "Tailwind", "Vite", "Docker", "SendGrid", "JWT"],
     bullets: [
-      "Built a full-stack loyalty points platform with role-based access control (4 roles), transaction processing, and promotional campaigns, capable of supporting 10,000+ concurrent users.",
+      "Built a full-stack platform with JWT auth, hierarchical RBAC (Superuser, Manager, Cashier, Regular User), role-based dashboards, email activation and password reset via SendGrid.",
+      "Implemented transaction lifecycle: purchases, redemptions, adjustments, peer-to-peer transfers, and event awards with full audit trails and suspicious-flagging.",
+      "Added analytics dashboard with linear regression trend analysis (daily/weekly/monthly), R² confidence scores, and Recharts visualizations—Redis-cached for 10x faster repeat queries.",
+      "Built event management (RSVP, capacity limits, points distribution to attendees) and promotions engine (automatic multipliers, one-time promo codes).",
+      "Optimized backend with Redis caching and distributed rate limiting; SQLite + Prisma ORM; React + Vite + Tailwind frontend; Helmet, bcrypt, and Zod for security.",
     ],
-    github: "https://github.com/hameddawoudzai/rewardly",
+    github: "https://github.com/HamedDawoudzai/Rewardly",
   },
   {
     name: "Android CMS Informations App",
