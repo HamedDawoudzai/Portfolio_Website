@@ -53,6 +53,20 @@ const projects: Project[] = [
     ],
     github: "https://github.com/HamedDawoudzai/Android-CMS-Informations-App",
   },
+  {
+    name: "Inline Code Comment Generator",
+    subtitle: "Developer Productivity CLI",
+    logo: "/images/project-placeholder.svg",
+    description:
+      "CLI tool that automatically adds concise inline comments to JavaScript/TypeScript files using a local LLM via Ollama — no API costs, works offline.",
+    tech: ["Node.js", "Ollama", "CodeLlama", "glob", "dotenv"],
+    bullets: [
+      "Reduced manual comment-writing from ~12 hours to under 20 seconds across 64 source files, improving onboarding for new developers.",
+      "Uses locally-served CodeLlama model with a commentsOnly safety filter that only adds comment lines — code logic, imports, and formatting never modified.",
+      "Supports batch processing, glob patterns, and configurable model/URL; designed for use as a dev dependency across projects.",
+    ],
+    github: "https://github.com/HamedDawoudzai/AI-Inline-Code-Comment-generator",
+  },
 ];
 
 const cardVariants = {
@@ -79,7 +93,7 @@ export default function Projects() {
         <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="mt-12 space-y-8">
+      <div className="mt-12 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
         {projects.map((project, i) => (
           <motion.div
             key={project.name}
@@ -88,8 +102,9 @@ export default function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
+            className="flex"
           >
-          <div className="flex flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:flex-row">
+          <div className="flex h-full flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:flex-row">
             <div className="flex items-center justify-center bg-card-border/20 p-10 lg:w-80 lg:flex-shrink-0">
               <div className="relative h-40 w-40 lg:h-52 lg:w-52">
                 <Image
