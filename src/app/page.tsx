@@ -10,15 +10,21 @@ import Skills from "@/components/Skills";
 function Band({
   variant,
   children,
+  wide,
 }: {
   variant: "dark" | "light";
   children: React.ReactNode;
+  wide?: boolean;
 }) {
   return (
     <div
       className={`${variant === "dark" ? "section-dark" : "section-light"} bg-background text-foreground transition-colors`}
     >
-      <div className="mx-auto max-w-6xl px-6 sm:px-10 md:px-12 lg:px-16">{children}</div>
+      <div
+        className={`mx-auto px-6 sm:px-10 md:px-12 lg:px-16 ${wide ? "max-w-[1400px]" : "max-w-6xl"}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -38,7 +44,7 @@ export default function Home() {
       <Band variant="light">
         <Education />
       </Band>
-      <Band variant="dark">
+      <Band variant="dark" wide>
         <Projects />
       </Band>
       <Band variant="light">

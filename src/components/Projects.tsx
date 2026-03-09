@@ -93,7 +93,7 @@ export default function Projects() {
         <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="mt-12 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
+      <div className="mt-12 grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-x-14 lg:gap-y-12">
         {projects.map((project, i) => (
           <motion.div
             key={project.name}
@@ -105,7 +105,7 @@ export default function Projects() {
             className="flex"
           >
           <div className="flex h-full flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:flex-row">
-            <div className="flex items-center justify-center bg-card-border/20 p-10 lg:w-80 lg:flex-shrink-0">
+            <div className="flex items-center justify-center bg-card-border/20 p-8 lg:w-72 lg:flex-shrink-0 lg:p-10">
               <div className="relative h-40 w-40 lg:h-52 lg:w-52">
                 <Image
                   src={project.logo}
