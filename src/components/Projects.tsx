@@ -56,7 +56,7 @@ const projects: Project[] = [
   {
     name: "Inline Code Comment Generator",
     subtitle: "Developer Productivity CLI",
-    logo: "/images/project-placeholder.svg",
+    logo: "/images/cute_ai_logo.png",
     description:
       "CLI tool that automatically adds concise inline comments to JavaScript/TypeScript files using a local LLM via Ollama — no API costs, works offline.",
     tech: ["Node.js", "Ollama", "CodeLlama", "glob", "dotenv"],
