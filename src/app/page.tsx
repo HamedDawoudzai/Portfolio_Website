@@ -11,17 +11,23 @@ function Band({
   variant,
   children,
   wide,
+  fullWidth,
 }: {
   variant: "dark" | "light";
   children: React.ReactNode;
   wide?: boolean;
+  fullWidth?: boolean;
 }) {
   return (
     <div
       className={`${variant === "dark" ? "section-dark" : "section-light"} bg-background text-foreground transition-colors`}
     >
       <div
-        className={`mx-auto px-6 sm:px-10 md:px-12 lg:px-16 ${wide ? "max-w-[1400px]" : "max-w-6xl"}`}
+        className={
+          fullWidth
+            ? "mx-auto w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-12"
+            : `mx-auto px-6 sm:px-10 md:px-12 lg:px-16 ${wide ? "max-w-[1400px]" : "max-w-6xl"}`
+        }
       >
         {children}
       </div>
@@ -44,7 +50,7 @@ export default function Home() {
       <Band variant="light">
         <Education />
       </Band>
-      <Band variant="dark" wide>
+      <Band variant="dark" fullWidth>
         <Projects />
       </Band>
       <Band variant="light">

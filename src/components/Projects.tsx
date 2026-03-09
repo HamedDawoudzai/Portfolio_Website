@@ -93,7 +93,7 @@ export default function Projects() {
         <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="mt-12 grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-x-14 lg:gap-y-12">
+      <div className="mt-12 grid grid-cols-1 grid-rows-4 gap-4 sm:gap-6 md:grid-cols-2 md:grid-rows-2 md:gap-6">
         {projects.map((project, i) => (
           <motion.div
             key={project.name}
@@ -102,32 +102,32 @@ export default function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="flex"
+            className="flex min-h-0"
           >
-          <div className="flex h-full flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:flex-row">
-            <div className="flex items-center justify-center bg-card-border/20 p-8 lg:w-72 lg:flex-shrink-0 lg:p-10">
-              <div className="relative h-40 w-40 lg:h-52 lg:w-52">
-                <Image
-                  src={project.logo}
-                  alt={`${project.name} logo`}
-                  fill
-                  className="object-contain"
-                />
+          <div className="flex min-h-[280px] w-full flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] sm:min-h-[300px]">
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto p-6 lg:p-8">
+              <div className="flex items-start gap-5">
+                <div className="relative h-16 w-16 flex-shrink-0 lg:h-20 lg:w-20">
+                  <Image
+                    src={project.logo}
+                    alt={`${project.name} logo`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif text-xl font-semibold tracking-tight text-foreground sm:text-2xl lg:text-3xl">
+                    {project.name}
+                  </h3>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent sm:text-sm lg:text-base">
+                    {project.subtitle}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className="flex-1 p-8 lg:p-10">
-              <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground lg:text-3xl">
-                {project.name}
-              </h3>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-accent lg:text-base">
-                {project.subtitle}
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted lg:text-lg">
+              <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base lg:text-lg">
                 {project.description}
               </p>
-
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-3 space-y-2 sm:space-y-3">
                 {project.bullets.map((bullet, idx) => (
                   <li
                     key={idx}
@@ -138,8 +138,7 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2 sm:mt-5">
                 {project.tech.map((t) => (
                   <span
                     key={t}
@@ -154,7 +153,7 @@ export default function Projects() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-md border-2 border-accent bg-transparent px-6 py-2.5 text-sm font-bold uppercase tracking-[0.15em] text-accent transition-all hover:bg-accent hover:text-white"
+                className="mt-4 inline-flex items-center gap-2 rounded-md border-2 border-accent bg-transparent px-5 py-2 text-sm font-bold uppercase tracking-[0.15em] text-accent transition-all hover:bg-accent hover:text-white sm:mt-5"
               >
                 View Project
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
