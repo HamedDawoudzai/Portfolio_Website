@@ -24,8 +24,8 @@ const projects: Project[] = [
     bullets: [
       "Built a production-grade monorepo with Spring Boot REST API and Next.js frontend, integrating Polygon.io (stocks) and Coinbase Exchange (crypto) for live market data and real-time prices.",
       "Implemented JWT auth, portfolio management with market/limit/stop-loss orders, server-side watchlist sync across sessions, and unified trade page with tab filters (All / Stocks / Crypto).",
-      "Added interactive Recharts performance charts with configurable intervals (1m–1d), transaction history audit trail, and holdings breakdown with cost basis and P&L per asset.",
-      "Optimized backend with Redis caching (5-min TTL) to reduce external API calls; PostgreSQL for transactional safety; Docker for PostgreSQL and Redis infrastructure.",
+      "Added interactive performance charts with configurable time ranges, transaction history, and holdings breakdown with profit/loss tracking per asset.",
+      "Optimized backend with Redis caching to reduce API calls; PostgreSQL for data integrity; Docker for database and cache.",
       "Delivered premium dark UI with gold accents across landing, dashboard, trade, portfolio, and transaction history views with responsive layouts.",
     ],
     github: "https://github.com/HamedDawoudzai/hybrid_exchange",
@@ -35,14 +35,14 @@ const projects: Project[] = [
     subtitle: "Modern Loyalty Points Management System",
     logo: "/images/Rewardly_logo.png",
     description:
-      "A full-stack loyalty platform for businesses to reward customer engagement. Features RBAC with role-specific dashboards, transaction processing (purchases, redemptions, transfers), real-time analytics with linear regression trends, event management with RSVP, and promotional campaigns, all with dark mode support.",
+      "A full-stack loyalty platform for businesses to reward customer engagement. Role-based dashboards, transaction processing (purchases, redemptions, transfers), spending analytics with trend charts, event management with RSVP, and promotional campaigns, all with dark mode support.",
     tech: ["JavaScript", "Node.js", "React", "Express", "Prisma", "SQLite", "Redis", "Tailwind", "Vite", "Docker", "SendGrid", "JWT"],
     bullets: [
       "Built a full-stack platform with JWT auth, hierarchical RBAC (Superuser, Manager, Cashier, Regular User), role-based dashboards, email activation and password reset via SendGrid.",
-      "Implemented transaction lifecycle: purchases, redemptions, adjustments, peer-to-peer transfers, and event awards with full audit trails and suspicious-flagging.",
-      "Added analytics dashboard with linear regression trend analysis (daily/weekly/monthly), R² confidence scores, and Recharts visualizations, Redis-cached for 10x faster repeat queries.",
+      "Implemented transaction lifecycle: purchases, redemptions, adjustments, transfers, and event awards with full audit trails and fraud flagging.",
+      "Added analytics dashboard with spending trend analysis (daily/weekly/monthly) and charts, Redis-cached for faster repeat queries.",
       "Built event management (RSVP, capacity limits, points distribution to attendees) and promotions engine (automatic multipliers, one-time promo codes).",
-      "Optimized backend with Redis caching and distributed rate limiting; SQLite + Prisma ORM; React + Vite + Tailwind frontend; Helmet, bcrypt, and Zod for security.",
+      "Optimized backend with Redis caching and rate limiting; SQLite + Prisma; React + Vite + Tailwind frontend; security via Helmet, bcrypt, and input validation.",
     ],
     github: "https://github.com/HamedDawoudzai/Rewardly",
   },
@@ -69,7 +69,7 @@ const projects: Project[] = [
     tech: ["Node.js", "Ollama", "CodeLlama", "glob", "dotenv"],
     bullets: [
       "Reduced manual comment-writing from ~12 hours to under 20 seconds across 64 source files, improving onboarding for new developers.",
-      "Uses locally-served CodeLlama model with a commentsOnly safety filter that only adds comment lines. Code logic, imports, and formatting never modified.",
+      "Uses a local CodeLlama model with a safety filter that only adds comment lines; code logic and formatting are never changed.",
       "Supports batch processing, glob patterns, and configurable model/URL; designed for use as a dev dependency across projects.",
     ],
     github: "https://github.com/HamedDawoudzai/AI-Inline-Code-Comment-generator",
