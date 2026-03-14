@@ -35,12 +35,12 @@ const projects: Project[] = [
     subtitle: "Modern Loyalty Points Management System",
     logo: "/images/Rewardly_logo.png",
     description:
-      "A full-stack loyalty platform for businesses to reward customer engagement. Features RBAC with role-specific dashboards, transaction processing (purchases, redemptions, transfers), real-time analytics with linear regression trends, event management with RSVP, and promotional campaigns—all with dark mode support.",
+      "A full-stack loyalty platform for businesses to reward customer engagement. Features RBAC with role-specific dashboards, transaction processing (purchases, redemptions, transfers), real-time analytics with linear regression trends, event management with RSVP, and promotional campaigns, all with dark mode support.",
     tech: ["JavaScript", "Node.js", "React", "Express", "Prisma", "SQLite", "Redis", "Tailwind", "Vite", "Docker", "SendGrid", "JWT"],
     bullets: [
       "Built a full-stack platform with JWT auth, hierarchical RBAC (Superuser, Manager, Cashier, Regular User), role-based dashboards, email activation and password reset via SendGrid.",
       "Implemented transaction lifecycle: purchases, redemptions, adjustments, peer-to-peer transfers, and event awards with full audit trails and suspicious-flagging.",
-      "Added analytics dashboard with linear regression trend analysis (daily/weekly/monthly), R² confidence scores, and Recharts visualizations—Redis-cached for 10x faster repeat queries.",
+      "Added analytics dashboard with linear regression trend analysis (daily/weekly/monthly), R² confidence scores, and Recharts visualizations, Redis-cached for 10x faster repeat queries.",
       "Built event management (RSVP, capacity limits, points distribution to attendees) and promotions engine (automatic multipliers, one-time promo codes).",
       "Optimized backend with Redis caching and distributed rate limiting; SQLite + Prisma ORM; React + Vite + Tailwind frontend; Helmet, bcrypt, and Zod for security.",
     ],
@@ -65,11 +65,11 @@ const projects: Project[] = [
     subtitle: "Developer Productivity CLI",
     logo: "/images/cute_ai_logo.png",
     description:
-      "CLI tool that automatically adds concise inline comments to JavaScript/TypeScript files using a local LLM via Ollama — no API costs, works offline.",
+      "CLI tool that automatically adds concise inline comments to JavaScript/TypeScript files using a local LLM via Ollama. No API costs, works offline.",
     tech: ["Node.js", "Ollama", "CodeLlama", "glob", "dotenv"],
     bullets: [
       "Reduced manual comment-writing from ~12 hours to under 20 seconds across 64 source files, improving onboarding for new developers.",
-      "Uses locally-served CodeLlama model with a commentsOnly safety filter that only adds comment lines — code logic, imports, and formatting never modified.",
+      "Uses locally-served CodeLlama model with a commentsOnly safety filter that only adds comment lines. Code logic, imports, and formatting never modified.",
       "Supports batch processing, glob patterns, and configurable model/URL; designed for use as a dev dependency across projects.",
     ],
     github: "https://github.com/HamedDawoudzai/AI-Inline-Code-Comment-generator",
