@@ -141,7 +141,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <p className="whitespace-nowrap text-sm leading-relaxed text-muted sm:text-base lg:text-lg">
+            <p className="text-sm leading-relaxed text-muted sm:whitespace-nowrap sm:text-base lg:text-lg">
               SWE Intern @ RBC | Prev @ Traveltical, Appy.yo | CS @ University of Toronto
             </p>
 
