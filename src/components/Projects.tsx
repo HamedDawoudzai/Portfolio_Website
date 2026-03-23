@@ -100,7 +100,7 @@ export default function Projects() {
         <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
       </motion.div>
 
-      <div className="mt-12 grid grid-cols-1 grid-rows-4 gap-4 sm:gap-6 md:grid-cols-2 md:grid-rows-2 md:gap-6">
+      <div className="mt-12 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-6">
         {projects.map((project, i) => (
           <motion.div
             key={project.name}
