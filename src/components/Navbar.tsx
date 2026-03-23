@@ -51,7 +51,7 @@ export default function Navbar() {
           : ""
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-10 md:px-12 lg:px-16">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-10 md:px-12 lg:px-16">
         <a
           href="#"
           className="font-serif text-xl font-bold tracking-tight text-accent transition-opacity hover:opacity-80"
@@ -122,7 +122,7 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden border-t border-card-border bg-background/95 backdrop-blur-lg md:hidden"
           >
-            <ul className="flex flex-col gap-1 px-6 py-4">
+            <ul className="flex flex-col gap-1 px-4 py-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
