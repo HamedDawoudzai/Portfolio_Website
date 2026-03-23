@@ -132,14 +132,14 @@ export default function Projects() {
                   </p>
                 </div>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base lg:text-lg">
+              <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
                 {project.description}
               </p>
               <ul className="mt-3 space-y-2 sm:space-y-3">
                 {project.bullets.map((bullet, idx) => (
                   <li
                     key={idx}
-                    className="flex gap-3 text-base leading-relaxed text-muted lg:text-lg"
+                    className="flex gap-3 text-sm leading-relaxed text-muted sm:text-base"
                   >
                     <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                     {bullet}
@@ -150,7 +150,7 @@ export default function Projects() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-lg border border-card-border px-3 py-1.5 text-sm text-muted"
+                    className="rounded-lg border border-card-border px-3 py-1.5 text-xs text-muted sm:text-sm"
                   >
                     {t}
                   </span>
