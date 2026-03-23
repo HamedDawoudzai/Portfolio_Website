@@ -109,10 +109,10 @@ export default function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="flex min-h-0"
+            className="flex"
           >
-          <div className="flex min-h-[280px] w-full flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] sm:min-h-[300px]">
-            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto p-6 lg:p-8">
+          <div className="flex w-full flex-col overflow-hidden rounded-xl border border-card-border bg-card transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] md:min-h-[420px]">
+            <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
               <div className="flex items-start gap-5">
                 <div className="relative h-16 w-16 flex-shrink-0 lg:h-20 lg:w-20">
                   <Image
