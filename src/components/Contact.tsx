@@ -151,6 +151,7 @@ export default function Contact() {
             </label>
             <input
               id="name"
+              name="name"
               type="text"
               required
               autoComplete="name"
@@ -166,6 +167,7 @@ export default function Contact() {
             </label>
             <input
               id="email"
+              name="email"
               type="email"
               required
               autoComplete="email"
@@ -181,6 +183,7 @@ export default function Contact() {
             </label>
             <textarea
               id="message"
+              name="message"
               required
               rows={5}
               value={formData.message}
