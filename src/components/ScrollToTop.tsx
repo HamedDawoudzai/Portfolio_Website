@@ -24,7 +24,7 @@ export default function ScrollToTop() {
           aria-label="Scroll to top"
           className="fixed bottom-6 right-6 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-foreground shadow-lg transition-colors hover:border-accent/40 hover:text-accent"
         >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
           </svg>
         </motion.button>
