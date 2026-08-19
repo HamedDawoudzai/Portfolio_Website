@@ -142,7 +142,7 @@ export default function Hero() {
             </div>
 
             <p className="text-sm leading-relaxed text-muted sm:whitespace-nowrap sm:text-base lg:text-lg">
-              SWE Intern @ RBC | Prev @ Traveltical, Appy.yo | CS @ University of Toronto
+              Incoming @ Pinterest, Squarepoint | SWE @ RBC | Computer Science @ University of Toronto
             </p>
 
             <p className="max-w-lg text-base leading-relaxed text-muted lg:text-lg">

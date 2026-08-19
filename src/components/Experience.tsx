@@ -14,6 +14,26 @@ interface Job {
 
 const jobs: Job[] = [
   {
+    company: "Squarepoint Capital",
+    logo: "/images/squarepoint_logo.png",
+    role: "Incoming Software Engineer Intern",
+    period: "Jan 2027 – Apr 2027",
+    location: "Montreal, QC",
+    bullets: [
+      "Incoming Software Engineer Intern for Winter 2027.",
+    ],
+  },
+  {
+    company: "Pinterest",
+    logo: "/images/pinterest_logo.png",
+    role: "Incoming Software Engineer Intern",
+    period: "Sep 2026 – Dec 2026",
+    location: "Toronto, ON",
+    bullets: [
+      "Incoming Software Engineer Intern for Fall 2026.",
+    ],
+  },
+  {
     company: "Royal Bank of Canada",
     logo: "/images/RBC_logo.png",
     role: "Software Developer Intern, U.S. Cash Management",
