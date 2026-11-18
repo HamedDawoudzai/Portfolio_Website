@@ -18,11 +18,14 @@ interface Job {
 const featured: Job = {
   company: "Pinterest",
   logo: "/images/pinterest_logo.png",
-  role: "Software Engineer Intern",
-  period: "Sep 2026 – Dec 2026",
+  role: "Software Engineer Intern, Cloud Architecture",
+  period: "Sep 2026 – Present",
   location: "Toronto, ON",
   bullets: [
-    "Software Engineer Intern for Fall 2026.",
+    "Engineered infrastructure supporting Pinterest's migration from Teletraan EC2 to PinCompute (Amazon EKS), addressing IPv4 address exhaustion through a large-scale transition to IPv6.",
+    "Built static-analysis linting tooling to detect IPv4 literals and application-level incompatibilities across production services prior to IPv6 migration.",
+    "Developed network connectivity validation tooling for Amazon EKS environments to verify cluster and service readiness for core IPv6 networking operations.",
+    "Integrated validation and remediation workflows into CI/CD pipelines across 765+ repositories, combining static-analysis findings with LLM-generated code changes to automatically open developer-ready pull requests.",
   ],
 };
 
@@ -42,7 +45,7 @@ const jobs: Job[] = [
     company: "Royal Bank of Canada",
     logo: "/images/RBC_logo.png",
     role: "Software Developer Intern, U.S. Cash Management",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 – Aug 2026",
     location: "Toronto, ON",
     bullets: [
       "Built and maintained Java Spring Boot microservices supporting high-volume U.S. corporate payment processing within RBC Global Payments.",
