@@ -8,26 +8,18 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Skills from "@/components/Skills";
 
 function Band({
-  variant,
-  children,
+  tinted,
   wide,
-  fullWidth,
+  children,
 }: {
-  variant: "dark" | "light";
-  children: React.ReactNode;
+  tinted?: boolean;
   wide?: boolean;
-  fullWidth?: boolean;
+  children: React.ReactNode;
 }) {
   return (
-    <div
-      className={`${variant === "dark" ? "section-dark" : "section-light"} bg-background text-foreground transition-colors`}
-    >
+    <div className={`${tinted ? "bg-surface" : "bg-background"} text-foreground transition-colors`}>
       <div
-        className={
-          fullWidth
-            ? "mx-auto w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-12"
-            : `mx-auto px-6 sm:px-10 md:px-12 lg:px-16 ${wide ? "max-w-[1400px]" : "max-w-6xl"}`
-        }
+        className={`mx-auto px-4 sm:px-8 md:px-12 lg:px-16 ${wide ? "max-w-[1400px]" : "max-w-6xl"}`}
       >
         {children}
       </div>
@@ -37,29 +29,29 @@ function Band({
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Band variant="dark">
+    <main className="min-h-screen overflow-x-clip">
+      <Band wide>
         <Hero />
       </Band>
-      <Band variant="light">
+      <Band>
         <About />
       </Band>
-      <Band variant="dark">
+      <Band tinted>
         <Experience />
       </Band>
-      <Band variant="light">
-        <Education />
-      </Band>
-      <Band variant="dark" fullWidth>
+      <Band wide>
         <Projects />
       </Band>
-      <Band variant="light">
+      <Band tinted>
+        <Education />
+      </Band>
+      <Band>
         <Skills />
       </Band>
-      <Band variant="dark">
+      <Band tinted>
         <Contact />
       </Band>
       <ScrollToTop />
-    </div>
+    </main>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 interface SkillCategory {
   label: string;
@@ -15,58 +17,73 @@ const skills: SkillCategory[] = [
   { label: "Testing & Practices", items: ["Unit Testing", "JUnit", "Mockito", "Agile / Scrum", "Object-Oriented Design", "JIRA"] },
 ];
 
-const rowVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.08, duration: 0.4, ease: "easeOut" as const },
-  }),
-};
+const ALL = "All";
+const filters = [ALL, ...skills.map((s) => s.label)];
 
 export default function Skills() {
+  const [active, setActive] = useState(ALL);
+
+  const shown = skills
+    .filter((c) => active === ALL || c.label === active)
+    .flatMap((c) => c.items);
+
   return (
     <section id="skills" className="scroll-mt-24 py-24 md:py-32">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <h2 className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">
-          Skills
-        </h2>
-        <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
-      </motion.div>
+      <SectionHeading
+        eyebrow="05 — Skills"
+        title="My"
+        highlight="toolkit"
+        description="Pick a topic to filter, the same way you'd browse ideas on a board."
+      />
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {skills.map((category, i) => (
-          <motion.div
-            key={category.label}
-            custom={i}
-            variants={rowVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-30px" }}
-          >
-          <div className="rounded-xl border border-card-border bg-card p-6 transition-all duration-200 hover:-translate-y-2 hover:border-blue-400/40 hover:shadow-[0_12px_40px_rgba(59,130,246,0.25)] lg:p-8">
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-accent lg:text-base">
-              {category.label}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {category.items.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-card-border bg-background px-4 py-1.5 text-sm text-foreground transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent lg:text-base"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          </motion.div>
-        ))}
-      </div>
+      <LayoutGroup>
+        {/* Topic chips */}
+        <div className="mt-12 flex flex-wrap gap-2" role="tablist" aria-label="Skill categories">
+          {filters.map((f) => {
+            const selected = active === f;
+            return (
+              <button
+                key={f}
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setActive(f)}
+                className={`relative rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
+                  selected ? "text-background" : "bg-surface text-foreground hover:bg-card-border"
+                }`}
+              >
+                {selected && (
+                  <motion.span
+                    layoutId="skill-chip"
+                    className="absolute inset-0 rounded-full bg-foreground"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="relative">{f}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Skill tiles */}
+        <motion.div layout className="mt-8 flex min-h-[180px] flex-wrap content-start gap-3">
+          <AnimatePresence mode="popLayout">
+            {shown.map((item) => (
+              <motion.span
+                key={item}
+                layout
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.85 }}
+                transition={{ duration: 0.25 }}
+                className="group flex items-center gap-2 rounded-2xl bg-card px-5 py-3.5 text-base font-semibold text-foreground ring-1 ring-card-border transition-shadow hover:shadow-[0_10px_24px_-12px_rgba(230,0,35,0.45)] hover:ring-accent"
+              >
+                <span className="h-2 w-2 rounded-full bg-accent transition-transform group-hover:scale-150" />
+                {item}
+              </motion.span>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </LayoutGroup>
     </section>
   );
 }

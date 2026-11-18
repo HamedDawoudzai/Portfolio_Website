@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
@@ -20,17 +20,22 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Hamed Dawoudzai | Software Developer",
+  title: "Hamed Dawoudzai | Software Engineer",
   description:
-    "Computer Science student at University of Toronto. Software Developer Intern at RBC. Building scalable systems with Java, Spring Boot, React, and modern cloud technologies.",
+    "Computer Science student at the University of Toronto. Software Engineer Intern at Pinterest, incoming at Squarepoint Capital. Building scalable backend systems with Java, Spring Boot, React, and modern cloud technologies.",
   openGraph: {
-    title: "Hamed Dawoudzai | Software Developer",
+    title: "Hamed Dawoudzai | Software Engineer",
     description:
-      "Computer Science student at University of Toronto. Software Developer specializing in backend systems and full-stack development.",
+      "Software Engineer Intern at Pinterest. Computer Science @ University of Toronto. Backend systems and full-stack development.",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#e60023",
 };
 
 export default function RootLayout({

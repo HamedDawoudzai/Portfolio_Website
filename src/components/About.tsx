@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import SectionHeading from "./SectionHeading";
 
 type LineType = "prompt" | "command" | "blank" | "code" | "string" | "output" | "success";
 interface TLine { text: string; type: LineType; }
@@ -37,7 +38,7 @@ const LOOP_LINE_DELAY = 250;
 const PAUSE_BEFORE_LOOP = 10000;
 
 const colorMap: Record<LineType, string> = {
-  prompt: "text-blue-400",
+  prompt: "text-[#ff5c73]",
   command: "text-white font-semibold",
   code: "text-slate-300",
   string: "text-yellow-300",
@@ -115,19 +116,19 @@ function TerminalBlock() {
   };
 
   return (
-    <div ref={ref} className="overflow-hidden rounded-xl border border-card-border bg-[#0c1222] shadow-xl">
+    <div ref={ref} className="overflow-hidden rounded-[24px] bg-[#111111] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)]">
       <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-red-500/80" />
         <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
         <span className="h-3 w-3 rounded-full bg-green-500/80" />
-        <span className="ml-3 text-xs font-mono text-white/40">terminal</span>
+        <span className="ml-3 font-mono text-xs text-white/40">~/hamed/career</span>
       </div>
-      <div className="h-[340px] overflow-hidden p-5 font-mono text-[13px] leading-relaxed sm:h-[360px] sm:text-[15px]">
+      <div className="h-[340px] overflow-hidden whitespace-pre-wrap p-5 font-mono text-[13px] leading-relaxed sm:h-[360px] sm:text-[15px]">
         {introLines.slice(0, introVisible).map((line, i) => renderLine(line, i))}
         {introVisible >= introLines.length &&
           loopLines.slice(0, loopVisible).map((line, i) => renderLine(line, i + introLines.length))}
         {isInView && (
-          <span className="inline-block h-4 w-2 animate-pulse bg-blue-400" />
+          <span className="inline-block h-4 w-2 animate-pulse bg-[#ff5c73]" />
         )}
       </div>
     </div>
@@ -143,74 +144,68 @@ const contactInfo = [
 export default function About() {
   return (
     <section id="about" className="scroll-mt-24 py-24 md:py-32">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <h2 className="font-serif text-5xl font-semibold tracking-tight sm:text-6xl">
-          About Me
-        </h2>
-        <span className="mt-5 block h-1 w-16 rounded-full bg-accent" />
-      </motion.div>
+      <SectionHeading eyebrow="01 — About" title="A little" highlight="about me" />
 
-      <div className="mt-16 flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-20">
+      <div className="mt-14 grid gap-14 lg:grid-cols-[1fr_380px] lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-          className="flex-1 space-y-6"
+          className="space-y-6"
         >
-          <p className="text-lg leading-relaxed text-muted lg:text-xl">
+          <p className="text-xl leading-relaxed text-foreground lg:text-2xl lg:leading-snug">
             I&apos;m a fourth-year Computer Science student at the University of
-            Toronto. I&apos;m passionate about backend engineering and full-stack
-            development, building software that scales and solves real problems.
+            Toronto, passionate about backend engineering and full-stack
+            development: building software that scales and solves real problems.
           </p>
-          <p className="text-lg leading-relaxed text-muted lg:text-xl">
-            Currently, I&apos;m working as a Software Developer Intern at RBC on
-            the U.S. Cash Management team, building Java Spring Boot
-            microservices for high-volume corporate payment processing. Previously,
-            I interned at Traveltical and Appy.yo. I&apos;m always looking to
-            gain more experience as a software engineer and take on new challenges.
+          <p className="text-lg leading-relaxed text-muted">
+            Right now I&apos;m a Software Engineer Intern at{" "}
+            <span className="font-semibold text-accent">Pinterest</span>, and in
+            January 2027 I&apos;m joining Squarepoint Capital. Before that I was at
+            RBC on the U.S. Cash Management team, building Java Spring Boot
+            microservices for high-volume corporate payment processing, and I
+            interned at Traveltical and Appy.yo.
           </p>
-          <p className="text-lg leading-relaxed text-muted lg:text-xl">
+          <p className="text-lg leading-relaxed text-muted">
             My long-term goal is to move to the United States and work as a
             software engineer where I can make a real impact, building products
             that people actually use every day.
           </p>
 
-          <TerminalBlock />
-
-          <div className="flex flex-col gap-6 pt-8 sm:flex-row sm:gap-12">
-            {contactInfo.map((item) => (
-              <div key={item.label}>
-                <p className="text-sm font-bold uppercase tracking-widest text-foreground">
-                  {item.label}
-                </p>
-                <p className="mt-2 whitespace-nowrap text-base text-muted">
-                  {item.value}
-                </p>
-              </div>
-            ))}
+          <div className="pt-2">
+            <TerminalBlock />
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-          className="flex-shrink-0"
+          className="space-y-4"
         >
-          <div className="relative h-80 w-full overflow-hidden rounded-xl border-2 border-card-border shadow-lg sm:h-96 lg:h-[480px] lg:w-96">
+          <div className="group relative h-80 overflow-hidden rounded-[32px] bg-surface sm:h-96 lg:h-[440px]">
             <Image
               src="/images/city_view.png"
               alt="Toronto skyline"
               fill
-              className="object-cover"
+              sizes="(min-width: 1024px) 380px, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-5 pt-16">
+              <p className="text-sm font-semibold text-white/80">Based in</p>
+              <p className="text-2xl font-extrabold tracking-tight text-white">Toronto, Ontario</p>
+            </div>
+          </div>
+
+          <div className="divide-y divide-card-border rounded-[28px] bg-surface px-6">
+            {contactInfo.map((item) => (
+              <div key={item.label} className="flex items-center justify-between gap-4 py-4">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted">{item.label}</p>
+                <p className="break-all text-right text-sm font-semibold text-foreground">{item.value}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
