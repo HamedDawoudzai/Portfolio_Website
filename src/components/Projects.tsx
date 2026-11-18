@@ -79,12 +79,9 @@ const projects: Project[] = [
   },
 ];
 
-/* Varying cover heights give the board its masonry rhythm */
-const coverHeights = ["h-72", "h-56", "h-56", "h-72"];
 
 function ProjectPin({ project, index }: { project: Project; index: number }) {
   const [open, setOpen] = useState(false);
-  const cover = coverHeights[index % coverHeights.length];
 
   return (
     <motion.article
@@ -92,7 +89,7 @@ function ProjectPin({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ delay: (index % 2) * 0.1, duration: 0.5, ease: "easeOut" }}
-      className="mb-10 break-inside-avoid"
+      className="flex h-full flex-col"
     >
       {/* Cover: the "pin" image */}
       <a
@@ -100,7 +97,7 @@ function ProjectPin({ project, index }: { project: Project; index: number }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`View ${project.name} on GitHub`}
-        className={`group relative flex ${cover} items-center justify-center overflow-hidden rounded-[28px] bg-surface pin-dots`}
+        className={`group relative flex h-64 flex-shrink-0 items-center justify-center overflow-hidden rounded-[28px] bg-surface pin-dots`}
       >
         <div className="relative h-28 w-28 overflow-hidden rounded-[28px] bg-white shadow-[0_12px_30px_-12px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110 sm:h-32 sm:w-32">
           <Image
@@ -126,14 +123,15 @@ function ProjectPin({ project, index }: { project: Project; index: number }) {
       </a>
 
       {/* Pin body */}
-      <div className="px-2 pt-4">
+      <div className="flex flex-1 flex-col px-2 pt-4">
         <h3 className="text-xl font-extrabold leading-tight tracking-tight text-foreground sm:text-2xl">
           {project.name}
         </h3>
         <p className="mt-1 text-sm font-semibold text-accent">{project.subtitle}</p>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">{project.description}</p>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-auto pt-4">
+        <div className="flex flex-wrap gap-1.5">
           {project.tech.map((t) => (
             <span
               key={t}
@@ -179,6 +177,7 @@ function ProjectPin({ project, index }: { project: Project; index: number }) {
             </motion.ul>
           )}
         </AnimatePresence>
+        </div>
       </div>
     </motion.article>
   );
@@ -205,7 +204,7 @@ export default function Projects() {
         </a>
       </div>
 
-      <div className="mt-14 columns-1 gap-8 md:columns-2">
+      <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 md:auto-rows-fr md:grid-cols-2">
         {projects.map((project, i) => (
           <ProjectPin key={project.name} project={project} index={i} />
         ))}
